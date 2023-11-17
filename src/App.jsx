@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   // ${import.meta.env.VITE_BACKEND_URL}
   const triggerRequest = () => {
-    axios(`https://astounding-daffodil-018ce9.netlify.app/.netlify/functions/api`)
+    axios(`${import.meta.env.VITE_BACKEND_URL}/api`)
       .then(response => {
         console.log(response)
       })

@@ -3,6 +3,10 @@
 [functions]
   node_bundler = "esbuild" 
 
+[template.environment]
+  API_URL = process.env.API_KEY
+
+
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   #[[redirects]]
