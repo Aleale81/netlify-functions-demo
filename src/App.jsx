@@ -1,14 +1,14 @@
 
 
-const axios = require('axios')
+import axios from 'axios'
 import './App.css'
 
 function App() {
   // ${import.meta.env.VITE_BACKEND_URL}
   const triggerRequest = () => {
-    axios.get(`https://astounding-daffodil-018ce9.netlify.app/.netlify/functions/api`)
+    axios(`https://astounding-daffodil-018ce9.netlify.app/.netlify/functions/api`)
       .then(response => {
-        console.log(response.json())
+        console.log(response)
       })
       .catch( e => {
         console.log(e)
