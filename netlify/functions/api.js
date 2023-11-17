@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 export const handler = async (event, context) => {
-    console.log(API_KEY)
+
     const cityName = "amsterdam";
     const API_KEY = process.env.API_KEY
 
