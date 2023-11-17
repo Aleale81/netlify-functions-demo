@@ -1,5 +1,4 @@
 import fetch from 'node-fetch'
-require('dotenv').config()
 
 export const handler = async (event, context) => {
     console.log(API_KEY)
