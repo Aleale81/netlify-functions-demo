@@ -1,11 +1,12 @@
 import fetch from 'node-fetch'
-const API_KEY = process.env.API_KEY
+//const API_KEY = process.env.API_KEY
 
 export const handler = async (event, context) => {
-    console.log(API_KEY)
+    //console.log(API_KEY)
     const cityName = "amsterdam";
    // const API_KEY = process.env.API_KEY
-    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
+   const apiKey = Netlify.env.get("API_KEY");
+    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
 
     const response = await fetch(API_URL);
     const data = await response.json()
