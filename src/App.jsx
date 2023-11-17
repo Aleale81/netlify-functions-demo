@@ -4,11 +4,11 @@ import axios from 'axios'
 import './App.css'
 
 function App() {
-  
+  // ${import.meta.env.VITE_BACKEND_URL}
   const triggerRequest = () => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api-request-with-credentials`)
+    axios.get(`https://astounding-daffodil-018ce9.netlify.app/.netlify/functions/api`)
       .then(response => {
-        console.log(response.data)
+        console.log(response.json())
       })
       .catch( e => {
         console.log(e)
