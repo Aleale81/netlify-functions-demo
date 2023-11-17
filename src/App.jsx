@@ -1,6 +1,6 @@
 
 
-import axios from 'axios'
+const axios = require('axios')
 import './App.css'
 
 function App() {
