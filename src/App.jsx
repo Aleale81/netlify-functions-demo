@@ -25,7 +25,7 @@ function App() {
     axios
     .post(`${import.meta.env.VITE_BACKEND_URL}/get-city-weather`, {city})
     .then((response) => {
-      console.log(response.data);
+      console.log(response);
       setResult(response.data)
     })
     .catch((err) => {
@@ -52,7 +52,7 @@ function App() {
         />
         <button type="submit">Submit</button>
       </form>
-      {result && <h2>{result.city}</h2>}
+      {result && <h2>{result.name}</h2>}
       {error && <p>{error}</p>}
     </>
   );
