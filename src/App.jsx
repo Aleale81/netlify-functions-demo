@@ -23,7 +23,11 @@ function App() {
     e.preventDefault();
     console.log("CITY", city);
     axios
-    .post(`${import.meta.env.VITE_BACKEND_URL}/get-city-weather`, city)
+    .post(`${import.meta.env.VITE_BACKEND_URL}/get-city-weather`, {
+      body: JSON.stringify({
+        city
+      })
+    })
     .then((response) => {
       console.log(response);
       setResult(response.data)
