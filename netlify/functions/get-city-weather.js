@@ -11,10 +11,11 @@ export const handler = async (event, context) => {
 
     try {
         const response = await axios.get(API_URL);
-        const data = response.data
+        //const data = response.data
+        console.log(response.data)
         return {
             statusCode: 200,
-            body: JSON.stringify({data})
+            body: JSON.stringify(response.data)
         }
     } catch (error) {
         console.log(error.code)

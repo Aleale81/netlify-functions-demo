@@ -25,7 +25,7 @@ function App() {
     axios
     .post(`${import.meta.env.VITE_BACKEND_URL}/get-city-weather`, {city})
     .then((response) => {
-      console.log(response);
+      console.log(response.data);
       setResult(response.data)
     })
     .catch((err) => {
