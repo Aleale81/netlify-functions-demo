@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export const handler = async (event, context) => {
-
-    const cityName = JSON.parse(event.body)
-    console.log('City', cityName)
     console.log("EVENT", event)
     console.log("Contex",context)
+    const cityName = JSON.parse(event.body)
+    console.log('City', cityName)
+    
     const API_KEY = process.env.API_KEY
 
     const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
