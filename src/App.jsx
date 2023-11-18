@@ -3,42 +3,43 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [city, setCity] = useState("berlin");
-  const [result, setResult] = useState(null)
-  const [error, setError] = useState(undefined)
-  // ${import.meta.env.VITE_BACKEND_URL}
+  const [city, setCity] = useState("Trieste");
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(undefined);
 
-  // const triggerRequest = () => {
-  //   axios
-  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api`)
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // };
+  // VITE_BACKEND_URL --> Netlify env variable
+
+  const triggerRequest = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   const handleForm = (e) => {
     e.preventDefault();
     console.log("CITY", city);
     axios
-    .post(`${import.meta.env.VITE_BACKEND_URL}/get-city-weather`, {city})
-    .then((response) => {
-      console.log(response);
-      setResult(response.data)
-    })
-    .catch((err) => {
-      console.log(err.message);
-      setError(err.message)
-    });
+      .post(`${import.meta.env.VITE_BACKEND_URL}/get-city-weather`, { city })
+      .then((response) => {
+        setResult(response.data);
+        setCity("");
+        setError(undefined);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
 
   return (
     <>
       <h1>Netlify Functions</h1>
 
-      {/* <button onClick={triggerRequest}>Trigger API request</button> */}
+      <button onClick={triggerRequest}>Trigger API request</button>
 
       <form onSubmit={handleForm}>
         <input

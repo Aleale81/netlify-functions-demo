@@ -20,7 +20,6 @@ export const handler = async (event, context) => {
             body: JSON.stringify(response.data)
         }
     } catch (error) {
-        console.log(error.code)
         return {
             statusCode: 400,
             body: JSON.stringify({
