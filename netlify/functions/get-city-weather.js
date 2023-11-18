@@ -2,21 +2,19 @@ import axios from "axios";
 
 export const handler = async (event, context) => {
     console.log("EVENT", JSON.parse(event.body))
-    const city = JSON.parse(event.body)
-    console.log('City', city.city)
+    const { city } = JSON.parse(event.body)
+    console.log('City', city)
     
     const API_KEY = process.env.API_KEY
 
-    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city.city}&appid=${API_KEY}&units=metric`
+    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
 
     try {
         const response = await axios.get(API_URL);
         const data = response.data
         return {
             statusCode: 200,
-            body: JSON.stringify({
-                data: data
-            })
+            body: JSON.stringify({data})
         }
     } catch (error) {
         console.log(error.code)
