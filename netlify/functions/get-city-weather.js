@@ -3,7 +3,7 @@ import axios from "axios";
 export const handler = async (event, context) => {
     console.log("EVENT", JSON.parse(event.body))
     const city = JSON.parse(event.body)
-    console.log('City', city)
+    console.log('City', city.city)
     
     const API_KEY = process.env.API_KEY
 
@@ -15,7 +15,7 @@ export const handler = async (event, context) => {
         return {
             statusCode: 200,
             body: JSON.stringify({
-                data: response
+                data: response()
             })
         }
     } catch (error) {
