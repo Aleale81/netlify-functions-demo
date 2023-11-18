@@ -46,7 +46,7 @@ function App() {
           name="city"
           value={city}
           onChange={(e) => {
-            setCity(e.tartget.value.toLowerCase());
+            setCity(e.target.value.toLowerCase());
           }}
           autoFocus
         />
