@@ -1,6 +1,7 @@
 import axios from "axios";
 import "./App.css";
 import { useState } from "react";
+import { Theme, Button, Input } from "react-daisyui";
 
 function App() {
   const [city, setCity] = useState("Trieste");
@@ -36,13 +37,16 @@ function App() {
   };
 
   return (
-    <>
-      <h1>Netlify Functions</h1>
+    <div className="App">
+      <Theme dataTheme="cupcake" className="whatever">
+        <h1 color="secondary ">Netlify Functions</h1>
+        <p color="primary">default Amsterdam</p>
+        <Button color="primary" onClick={triggerRequest}>
+          Trigger API request
+        </Button>
 
-      <button onClick={triggerRequest}>Trigger API request</button>
-
-      <form onSubmit={handleForm}>
-        <input
+        <form onSubmit={handleForm}>
+          {/* <input
           type="text"
           name="city"
           value={city}
@@ -50,12 +54,36 @@ function App() {
             setCity(e.target.value.toLowerCase());
           }}
           autoFocus
-        />
-        <button type="submit">Submit</button>
-      </form>
-      {result && <h2>{result.name}</h2>}
-      {error && <p>{error}</p>}
-    </>
+        /> */}
+          <div className="flex w-full component-preview p-4 items-center justify-center gap-2 font-sans">
+            <div className="form-control w-full max-w-xs">
+              <label className="label secondary">
+                <span className="label-text">Type your city...</span>
+              </label>
+              <Input
+                className="w-full max-w-xs secondary bordered borderOffset md mb-4 secondary"
+                bordered="true"
+                borderOffset="true"
+                color="secondary"
+                placeholder="Type here"
+                type="text"
+                name="city"
+                value={city}
+                onChange={(e) => {
+                  setCity(e.target.value.toLowerCase());
+                }}
+                autoFocus
+              />
+              <Button color="secondary" type="submit">
+                Submit
+              </Button>
+            </div>
+          </div>
+        </form>
+        {result && <h2>{result.name}</h2>}
+        {error && <p>{error}</p>}
+      </Theme>
+    </div>
   );
 }
 
