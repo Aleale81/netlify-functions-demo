@@ -11,8 +11,6 @@ export const handler = async (event, context) => {
 
     return {
         statusCode: 200,
-        body: JSON.stringify({
-            info: response.data
-        })
+        body: JSON.stringify(response.data)
     }
 }
