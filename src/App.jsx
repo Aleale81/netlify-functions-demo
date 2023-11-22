@@ -38,15 +38,12 @@ function App() {
 
   return (
     <div className="App">
-      <Theme dataTheme="cupcake" className="whatever">
-        <h1 color="secondary ">Netlify Functions</h1>
-        <p color="primary">default Amsterdam</p>
-        <Button color="primary" onClick={triggerRequest}>
-          Trigger API request
-        </Button>
-
-        <form onSubmit={handleForm}>
-          {/* <input
+      <h1 color="secondary ">Netlify Functions</h1>
+      <button onClick={triggerRequest}>Trigger API request</button>
+      <hr></hr>
+      <h1 color="secondary ">Post request</h1>
+      <form onSubmit={handleForm}>
+        <input
           type="text"
           name="city"
           value={city}
@@ -54,35 +51,12 @@ function App() {
             setCity(e.target.value.toLowerCase());
           }}
           autoFocus
-        /> */}
-          <div className="flex w-full component-preview p-4 items-center justify-center gap-2 font-sans">
-            <div className="form-control w-full max-w-xs">
-              <label className="label secondary">
-                <span className="label-text">Type your city...</span>
-              </label>
-              <Input
-                className="w-full max-w-xs secondary bordered borderOffset md mb-4 secondary"
-                bordered="true"
-                borderOffset="true"
-                color="secondary"
-                placeholder="Type here"
-                type="text"
-                name="city"
-                value={city}
-                onChange={(e) => {
-                  setCity(e.target.value.toLowerCase());
-                }}
-                autoFocus
-              />
-              <Button color="secondary" type="submit">
-                Submit
-              </Button>
-            </div>
-          </div>
-        </form>
-        {result && <h2>{result.name}</h2>}
-        {error && <p>{error}</p>}
-      </Theme>
+        />
+        <span className="label-text">Type your city...</span>
+        <button type="submit">Submit</button>
+      </form>
+      {result && <h2>{result.name}</h2>}
+      {error && <p>{error}</p>}
     </div>
   );
 }
