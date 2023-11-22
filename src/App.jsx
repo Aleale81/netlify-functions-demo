@@ -1,7 +1,7 @@
 import axios from "axios";
 import "./App.css";
 import { useState } from "react";
-import { Theme, Button, Input } from "react-daisyui";
+
 
 function App() {
   const [city, setCity] = useState("Trieste");
